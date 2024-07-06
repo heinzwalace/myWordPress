@@ -43,9 +43,10 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+            yield MenuItem::linkToRoute('prod', 'fa fa-undo', 'app_home');
+
             yield MenuItem::linkToDashboard('tableau2bord', 'fas fa-home');
 
-            // yield MenuItem::linkToRoute('Aller sur le site', 'fas fa-undo', 'home');
 
         // if ($this->isGranted('ROLE_ADMIN')) {
             // yield MenuItem::subMenu('Menus', 'fas fa-list')->setSubItems([
@@ -69,28 +70,28 @@ class DashboardController extends AbstractDashboardController
             
             
 
-            yield MenuItem::subMenu('Médias', 'fas fa-photo-video')->setSubItems([
-                MenuItem::linkToCrud('Médiathèque', 'fas fa-photo-video', Media::class),
-                MenuItem::linkToCrud('Ajouter', 'fas fa-plus', Media::class)->setAction(Crud::PAGE_NEW),
-            ]);
-        // }
+        //     yield MenuItem::subMenu('Médias', 'fas fa-photo-video')->setSubItems([
+        //         MenuItem::linkToCrud('Médiathèque', 'fas fa-photo-video', Media::class),
+        //         MenuItem::linkToCrud('Ajouter', 'fas fa-plus', Media::class)->setAction(Crud::PAGE_NEW),
+        //     ]);
+        // // }
 
-        // if ($this->isGranted('ROLE_ADMIN')) {
-            yield MenuItem::subMenu('Pages', 'fas fa-file')->setSubItems([
-                MenuItem::linkToCrud('Toutes les pages', 'fas fa-file', Page::class),
-                MenuItem::linkToCrud('Ajouter une page', 'fas fa-plus', Page::class)->setAction(Crud::PAGE_NEW)
-            ]);
+        // // if ($this->isGranted('ROLE_ADMIN')) {
+        //     yield MenuItem::subMenu('Pages', 'fas fa-file')->setSubItems([
+        //         MenuItem::linkToCrud('Toutes les pages', 'fas fa-file', Page::class),
+        //         MenuItem::linkToCrud('Ajouter une page', 'fas fa-plus', Page::class)->setAction(Crud::PAGE_NEW)
+        //     ]);
 
             yield MenuItem::linkToCrud('Commentaires', 'fas fa-comment', Comment::class);
 
-            yield MenuItem::subMenu('Comptes', 'fas fa-user')->setSubItems([
-                MenuItem::linkToCrud('Tous les comptes', 'fas fa-user-friends', User::class),
-                MenuItem::linkToCrud('Ajouter', 'fas fa-plus', User::class)->setAction(Crud::PAGE_NEW)
-            ]);
+            // yield MenuItem::subMenu('Comptes', 'fas fa-user')->setSubItems([
+            //     MenuItem::linkToCrud('Tous les comptes', 'fas fa-user-friends', User::class),
+            //     MenuItem::linkToCrud('Ajouter', 'fas fa-plus', User::class)->setAction(Crud::PAGE_NEW)
+            // ]);
 
-            yield MenuItem::subMenu('Réglages', 'fas fa-cog')->setSubItems([
-                MenuItem::linkToCrud('Général', 'fas fa-cog', Option::class),
-            ]);
+            // yield MenuItem::subMenu('Réglages', 'fas fa-cog')->setSubItems([
+            //     MenuItem::linkToCrud('Général', 'fas fa-cog', Option::class),
+            // ]);
         // }
     }
 }

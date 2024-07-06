@@ -27,6 +27,11 @@ class ArticleCrudController extends AbstractCrudController
 
         yield TextareaField::new('featuredText', 'Texte mis en avant');
 
+        yield TextEditorField::new('featuredText', 'Texte mis en avant');
+
+        yield AssociationField::new('categories');
+
+
         // yield AssociationField::new('categories');
 
         // yield AssociationField::new('featuredImage');

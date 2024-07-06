@@ -6,11 +6,15 @@
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
+            {{ encore_entry_link_tags('article') }}
+
             <link rel="stylesheet" href="{{ asset('styles/app.css') }}">
         {% endblock %}
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
+            {{ encore_entry_script_tags('article') }}
+
             {# {{ importmap() }} #}
         {% endblock %}
     </head>
@@ -24,7 +28,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButtonAdminDashboard">
                         <li><a class="dropdown-item" href="{{ path('admin') }}">Tableau de bord</a>
-                        <li><a class="dropdown-item" href="#">Tableau 2 bord</a>
+                        <li><a class="dropdown-item" href="{{ path('app_home')}}">home</a>
                         <li><a class="dropdown-item" href="#">Tableau de bord</a>
                     </li>
                     </ul>

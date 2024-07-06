@@ -32,7 +32,7 @@ class Comment
     private Article $article;
 
     #[ORM\ManyToOne(targetEntity: User::class, inversedBy: 'comments')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     private UserInterface $user;
 
     #[ORM\ManyToOne(targetEntity: self::class, inversedBy: 'replies')]
@@ -42,10 +42,10 @@ class Comment
     #[ORM\OneToMany(mappedBy: 'parent', targetEntity: self::class)]
     private Collection $replies;
 
-    public function __construct(Article $article, UserInterface $user)
+    public function __construct(Article $article)
     {
         $this->article = $article;
-        $this->user = $user;
+        // $this->user = $user;
         $this->replies = new ArrayCollection();
     }
 

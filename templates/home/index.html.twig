@@ -1,5 +1,8 @@
 {% extends 'base.html.twig' %}
 
+{% set leftCol = 5 %}
+{% set rightCol = 5 %}
+
 {% block title %}h{% endblock %}
 
 {% block body %}
@@ -8,6 +11,9 @@
     <div class="row">
         <div class="col-md-8">
             <h3 class="pb-4 fst-italic border-bottom">Articles récents</h3>
+            <div id="article-list">
+                {% include "article/list.html.twig" with { articles } %} 
+            </div>
         </div>
 
         <div class="col-md-4">
