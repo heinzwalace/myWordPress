@@ -9,7 +9,7 @@
 
         <hr>
 
-        {{ article.content}}
+        {{ article.featuredText|striptags|raw}}
 
         <hr>
 
@@ -20,6 +20,19 @@
                     }
                 )
         }}
+
+        {% if(article.comments|length > 0) %}
+            {{ article.comments|length }} commentaires <br>
+            <ul>
+
+                {% for c in article.comments %}     
+                    <li>{{ c.content|striptags }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <h2>0 commentaire</h2>
+        {% endif %}
+         {# {% include "comment/index.html.twig" %} #}
     </div>
 
 {% endblock %} 

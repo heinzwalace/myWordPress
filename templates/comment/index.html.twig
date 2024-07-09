@@ -1,10 +1,10 @@
-{% set username = app.user.username %}
+{% set username = app.user.username ?? 'Toto' %}
 
-<div class="comment" id="c{{ comment.id }}">
+<div class="comment" id="{{ comment.id }}">
     <div class="card">
         <div class="comment-content">
             <h5 class="card-title">
-                <a class="text-decoration-none" href="{{ path('user', { 'username': username }) }}">
+                <a class="text-decoration-none" href="{{ path('user', { 'username': username}) }}">
                     <span class="comment-author">{{ username }}</span>
                 </a>
             </h5>
@@ -13,17 +13,17 @@
         </div>
         {% if is_granted('IS_AUTHENTICATED_FULLY') %}
             <div class="card-footer">
-                {% include 'comment/_card_footer.twig' with { 'action': 'show', 'id': comment.id, 'isCommentAuthor': comment|isCommentAuthor } %}
+                {# {% include 'comment/_card_footer.twig' with { 'action': 'show', 'id': comment.id, 'isCommentAuthor': comment|isCommentAuthor } %} #}
             </div>
         {% endif %}
     </div>
 
-    <div class="comment-answers">
+    {# <div class="comment-answers">
         {% if item.answers is defined %}
             {% for answer in item.answers %}
                 {% include 'comment/answer.html.twig' with { 'answer': answer } %}
             {% endfor %}
         {% endif %}
-    </div>
+    </div> #}
 
 </div>
